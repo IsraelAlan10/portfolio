@@ -1,0 +1,136 @@
+---
+
+import HTML from './icons/HTML.astro';
+import JavaScript from './icons/Js.astro';
+import CSS from './icons/Css.astro';
+import c from './icons/c.astro';
+import Unity from './icons/Unity.astro';
+import LinkButton from './LinkButton.astro';
+import Github from './icons/Github.astro';
+import Link from './icons/Link.astro';
+import Ilustrator from './icons/Ilustrator.astro';
+import Firebase from './icons/Firebase.astro';
+
+
+const TAGS = {
+    JS: {
+        name: 'JavaScript',
+        class: 'bg-[#f7df1d] text-[#232226]',
+        icon: JavaScript
+    },
+    
+    HTML: {
+        name: 'HTML',
+        class: 'bg-[#e65428]',
+        icon: HTML
+    },
+
+    CSS: {
+        name: 'CSS',
+        class: 'bg-[#264de4]',
+        icon: CSS
+        
+    },
+    
+    C: {
+        name: 'C#',
+        class: 'bg-[#66207a]',
+        icon: c
+        
+    },
+    
+    Unity: {
+        name: 'Unity',
+        class: 'bg-black',
+        icon: Unity
+    },
+    Ilustrator: {
+        name: 'Illustrator',
+        class: 'bg-[#320101]',
+        icon: Ilustrator
+    },
+    Firebase: {
+        name: 'Firebase',
+        class: 'bg-[#ffa614]',
+        icon: Firebase
+    }
+}
+const PROJECTS = [
+    {
+        title: 'MassMaster - Registra lo que comes y consigue mejores resultados',
+        description: 'La mejor forma de lograr tus objetivos es registrar tu progreso y lo que comes! Massmaster te permite registrar tu comidas y saber su valor nutricional para que puedas cumplir tus objetivos.',
+        link: 'https://mass-master.vercel.app/',
+        image: '/projects/massmaster.webp',
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JS, TAGS.Firebase]
+    },
+    {
+        title: 'Bubbles - Juego 2D de niveles',
+        description: 'Bubbles es un juego 2D en el que estás inmerso en un mundo de niveles y enemigos, en el que tendrás que derrotarlos y juntar las gotas para salvar al mundo de la extinción.',
+        link: 'https://israde.itch.io/bubbles',
+        github: 'https://github.com/IsraelAlan10/Bubbles',
+        image: './projects/shot.webp',
+        tags: [TAGS.Unity, TAGS.C, TAGS.Ilustrator]
+    },
+    {
+        title: 'Astro - FPS Game',
+        description: 'Astro es un Juego de Disparos en primera persona en donde en cada horda que avanzas el nivel de dificultad y de enemigos es mayor.',
+        link: 'https://israde.itch.io/astro',
+        image: './projects/astr0_1.webp',
+        tags: [TAGS.Unity, TAGS.C, TAGS.Ilustrator], 
+    }
+]
+---
+
+<div class="flex flex-col gap-y-16">
+{
+    PROJECTS.map((project) => (
+        <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+            <div class="w-full md:w-1/2">
+                <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50 max-h-64">
+                    <img class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={project.image} alt="Captura de pantalla del proyecto ${project.image}">
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2 md:max-w-lg">
+                <h3 class="text-2xl font-bold mb-2 text-pretty">{project.title}</h3>
+ 
+                <div class="flex flex-wrap mt-2">
+                    <ul class="flex gap-x-2 flex-row mt-4">    
+                        {
+                            project.tags.map((tag) => (
+                                <span class={`flex gap-x-2 rounded-full font-semibold text-xs py-1 px-2 items-center ${tag.class}`}>
+                                    <tag.icon class="size-8" />
+                                    <li>{tag.name}</li>
+                                </span>
+                            ))
+                        }
+                    </ul>
+                </div>
+
+                <div class="mt-5 text-gray-400 text-pretty">{project.description}</div>
+
+                <footer class="flex items-end justify-start mt-4 gap-x-4">
+                    {project.link && (
+                        <LinkButton href={project.link}>
+                        <Link class="size-4" />
+                        Preview
+                        </LinkButton>
+                    )}
+                    {project.github && (
+                        
+                        <LinkButton href={project.github}>
+                        <Github class="size-4" />
+                        Github
+                        </LinkButton>
+                    )}
+                </footer>
+            </div>
+            
+        </article>
+
+        
+
+
+    ))
+}
+</div>

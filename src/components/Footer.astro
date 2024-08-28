@@ -1,0 +1,56 @@
+---
+
+    const navItemsFooter = [
+        {
+            title: 'Inicio',
+            label: 'inicio',
+            href: '#top'
+        },
+        {
+            title: 'Sobre mí',
+            label: 'sobre mi',
+            href: '#sobre-mi'
+        },
+        {
+            title: 'Proyectos',
+            label: 'proyectos',
+            href: '#proyectos'
+        },
+        {
+            title: 'Contacto',
+            label: 'contacto',
+            href: 'mailto:alanisrael215@gmail.com'
+        }
+    ]
+---
+
+<footer class="bg-black/10 rounded-lg shadow m-4 dark:bg-gray-800 my-10 xl:w-[1120px] mx-auto px-5 py-2">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">Desarrollado por Alan Israel
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+       {
+           navItemsFooter.map((item) => (
+               <li>
+                   <a
+                       aria-label={item.label} 
+                       href={item.href} 
+                       class="hover:underline me-4 md:me-6">
+                       {item.title}
+                    </a>
+               </li>
+           ))
+       }
+       
+        <!-- <li>
+            <a href="#" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline me-4 md:me-6">Proyectos</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline">Contacto</a>
+        </li> -->
+    </ul>
+    </div>
+</footer>

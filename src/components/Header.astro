@@ -1,0 +1,66 @@
+---
+ const navItems = [
+    {
+        title: 'Inicio',
+        label: 'inicio',
+        href: '#top'
+    },
+    {
+        title: 'Sobre mí',
+        label: 'sobre mi',
+        href: '#sobre-mi'
+    },
+    {
+        title: 'Proyectos',
+        label: 'proyectos',
+        href: '#proyectos'
+    },
+    {
+        title: 'Contacto',
+        label: 'contacto',
+        href: 'mailto:alanisrael215@gmail.com'
+    }
+ ]
+ 
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 w-full bg-opacity-50 transition-opacity duration-300">
+    <div class="flex justify-between items-center py-3 w-full xl:w-[1120px] mx-auto px-5">
+        <div class="sm:flex flex-row hidden items-center gap-5 text-xs lg:text-sm">
+            <img class="rounded-full shadow-lg size-14" src="/public/pic/me.webp" alt="Logo de Portfolio">
+            <div>
+                <h3 class="font-medium">Alan Israel</h3>
+                <h3 class="opacity-70">Desarrollador</h3>
+            </div>
+        </div>
+        <nav class="flex my-0 pt-5 mx-auto sm:mx-0 sm:pt-0 flex-row gap-x-5 lg:gap-x-10 opacity-80 text-sm lg:text-base">
+            {
+                navItems.map((item) => (
+                    <a aria-label={item.label} 
+                       href={item.href} 
+                       class="hover:opacity-80 hover:scale-105 transition duration-500">
+                       {item.title}
+                    </a>
+                ))
+            }
+        </nav>
+    </div>
+</header>
+
+<style>
+    #navbar {
+        transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+    }
+    .nav {
+        @apply bg-neutral-950 bg-opacity-50 ring-white/10 shadow-lg ring-1 backdrop-blur;
+    }
+</style>
+
+<script type="text/javascript">
+    window.addEventListener('scroll', function() {
+        
+        const navbar = document.querySelector('#navbar');
+
+        navbar.classList.toggle('nav', window.scrollY > 10);
+    })
+</script>
