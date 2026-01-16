@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GithubIcon from '../components/icons/Github.astro';
+import SocialPil from '../components/Social.astro';
+import Linkedin from '../components/icons/LinkedinIcon.astro';
+import SectionContainer from '../components/Section.astro';
+import Code from '../components/icons/Code.astro';
+import Projects from '../components/Projects.astro';
+import Experience from '../components/Experience.astro';
+import React from '../components/icons/React.astro';
+import Nmap from '../components/icons/Nmap.astro';
+import Splunk from '../components/icons/Splunk.astro';
+import WireShark from '../components/icons/WireShark.astro';
+import Python from '../components/icons/Python.astro';
+import Person from '../components/icons/Person.astro';
+import About from '../components/About.astro'
+import Linux from '../components/icons/Linux.astro';
+
+const styleIcons = 'size-7 lg:size-9';
+
+---
+
+<Layout 
+	title="Portfolio Alan Israel | Security Engineer & Network Engineer"
+	description='Portfolio de Alan Israel, Desarrollador y Programador Web en busca de su primer trabajo'
+	>
+		<main class="px-4 pt-16">
+			<div class="flex flex-col items-center py-32">
+				<h1 class="text-white text-5xl lg:text-7xl font-bold flex justify-center text-center">Security Engineer</h1>
+				<h2 class="text-white text-3xl lg:text-5xl font-bold flex justify-center mt-3 opacity-60">Alan Israel</h2>
+
+				<nav class="flex flex-wrap justify-center gap-4 mt-8">
+					<SocialPil href="https://github.com/IsraelAlan10/">
+						<GithubIcon class="size-4 lg:size-6" />
+						GitHub
+					</SocialPil>
+					<SocialPil href="https://www.linkedin.com/in/alan-israel-montero-herrera-8358a0235/">
+						<Linkedin class="size-4 lg:size-6" />
+						LinkedIn
+					</SocialPil>
+					
+				</nav>
+				<nav class="flex flex-wrap justify-center gap-3 mt-8">
+					
+					<React class={styleIcons} />
+					<Linux class={styleIcons} />
+					<Splunk class={styleIcons} />
+					<WireShark class={styleIcons}/>
+					<Nmap class={styleIcons} />
+					<Python class={styleIcons} />
+					
+				</nav>
+		 	</div>
+
+			<SectionContainer id="experiencia">
+				<h2 class="text-4xl font-semibold mb-8 flex gap-x-3 items-center mt-28">
+					<Code class="size-7" />
+					Experiencia
+				</h2>
+
+				<Experience />
+			</SectionContainer>
+
+			<SectionContainer id="proyectos">
+				<h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center mt-20">
+					<Code class="size-7"/>
+					Proyectos
+				</h2>
+
+				<Projects />
+			</SectionContainer>
+
+			<SectionContainer id="sobre-mi">
+				<h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center mt-24">
+					<Person class="size-7" />
+					Sobre mí
+				</h2>
+
+				<About />
+			</SectionContainer>
+		</main>
+</Layout>
